@@ -21,13 +21,7 @@ XZHGCDDispatcher is available through [CocoaPods](https://cocoapods.org). To ins
 it, simply add the following line to your Podfile:
 
 ```ruby
-# pod source
 pod 'XZHGCDDispatcher'
-```
-
-```ruby
-# pod static library
-pod 'XZHGCDDispatcherStatic'
 ```
 
 ## Usage
