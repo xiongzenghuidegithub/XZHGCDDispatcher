@@ -1,12 +1,17 @@
-fastlane_version "2.105.2"
+#########################################################
+# fastlane release version:0.1.0
+# podspepc_name=XZHGCDDispatcher fastlane release version:0.1.0
+#########################################################
+
+fastlane_version '2.105.2'
 default_platform(:ios)
 PODSPEC_NAME = ENV['podspepc_name']
-PODSPEC_NAME = 'ZHGCDDispatcher'.freeze if PODSPEC_NAME.nil?
+PODSPEC_NAME = 'XZHGCDDispatcher'.freeze if PODSPEC_NAME.nil?
 
-def check_current_work_status(env = :public, options)
+def check_current_work_status(options, env = :public)
   target_version = options[:version]
   if target_version.nil?
-    UI.user_error!("target_version miss")
+    UI.user_error!('target_version miss')
   end
   ensure_git_status_clean
   ensure_git_branch(branch: 'master')
@@ -41,7 +46,7 @@ def update_version(options)
   )
 end
 
-def commit_push_pod_push_tag(env, options)
+def commit_push_pod_push_tag(options, env)
   target_version = options[:version]
 
   # git commit -A
@@ -57,18 +62,18 @@ def commit_push_pod_push_tag(env, options)
   if git_tag_exists(tag: target_version)
     UI.message("发现 tag:#{target_version} 存在，即将执行删除动作 🚀")
     git_remove_tag(
-      tag:target_version, 
-      isRL:true,
-      isRR:true
+      tag: target_version,
+      isRL: true,
+      isRR: true
     )
   end
 
   # add tag、push tag
   add_git_tag(tag: target_version)
-  push_git_tags()
+  push_git_tags
 end
 
-def podspec_push_to_repo(env, options)
+def podspec_push_to_repo(options, env)
   # ~/.cocoapods/repos  ls -l
   # total 0
   # drwxr-xr-x  7 xiongzenghui  staff  224  8 19 14:34 aliyun
@@ -84,28 +89,28 @@ def podspec_push_to_repo(env, options)
   )
 end
 
-def deploy_pod(env, options)
+def deploy_pod(options, env)
   update_version(options)
-  commit_push_pod_push_tag(env, options)
-  podspec_push_to_repo(env, options)
+  commit_push_pod_push_tag(options, env)
+  podspec_push_to_repo(options, env)
 end
 
-def perform_lane(env = :release, options)
+def perform_lane(options, env = :release)
   target_version = options[:version]
   # target_version = version_get_podspec(path: "#{PODSPEC_NAME}.podspec") if target_version.nil?
   UI.confirm("confirm push repo version is #{target_version}, pod is #{PODSPEC_NAME}")
-  check_current_work_status(env, options)
+  check_current_work_status(options, env)
   perform_lint_lib
   # perform_scan = options[:perform_scan]
   # if perform_scan
   #   perform_scan
   # end
-  deploy_pod(env, options)
+  deploy_pod(options, env)
 end
 
 platform :ios do
   lane :release do |options|
     UI.message('begin release public')
-    perform_lane(:release, options)
+    perform_lane(options, :release)
   end
 end
