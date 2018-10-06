@@ -1,0 +1,6 @@
+framework module Pods_XZHGCDDispatcher_Tests {
+  umbrella header "Pods-XZHGCDDispatcher_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

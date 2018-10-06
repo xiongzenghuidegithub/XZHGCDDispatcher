@@ -1,0 +1,6 @@
+framework module Pods_XZHGCDDispatcher_Example {
+  umbrella header "Pods-XZHGCDDispatcher_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

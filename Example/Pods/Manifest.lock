@@ -1,0 +1,16 @@
+PODS:
+  - XZHGCDDispatcher (0.1.0)
+
+DEPENDENCIES:
+  - XZHGCDDispatcher (from `../`)
+
+EXTERNAL SOURCES:
+  XZHGCDDispatcher:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XZHGCDDispatcher: cdb907e4acbedaa0841f8a6ddaefc558d43ee08a
+
+PODFILE CHECKSUM: f4fda98ad5936fe15175628c54cbbb0b8853c3d1
+
+COCOAPODS: 1.5.3

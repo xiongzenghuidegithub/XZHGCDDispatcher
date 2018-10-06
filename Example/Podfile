@@ -1,0 +1,9 @@
+use_frameworks!
+
+target 'XZHGCDDispatcher_Example' do
+  pod 'XZHGCDDispatcher', :path => '../'
+
+  target 'XZHGCDDispatcher_Tests' do
+    inherit! :search_paths
+  end
+end
