@@ -1,6 +1,7 @@
 #########################################################
-# fastlane release version:0.1.0
-# podspepc_name=XZHGCDDispatcher fastlane release version:0.1.0
+# fastlane deploy_source version:0.1.0
+# podspepc_name=XZHGCDDispatcher fastlane deploy_source version:0.1.0
+# https://docs.fastlane.tools/actions
 #########################################################
 
 fastlane_version '2.105.2'
@@ -109,8 +110,15 @@ def perform_lane(options, env = :release)
 end
 
 platform :ios do
-  lane :release do |options|
+  lane :deploy_source do |options|
     UI.message('begin release public')
     perform_lane(options, :release)
+  end
+
+  lane :deploy_static_lib do |options|
+    pod_package(
+      podspec_name: "#{PODSPEC_NAME}",
+      version: options[:version]
+    )
   end
 end

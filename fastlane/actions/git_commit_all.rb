@@ -6,12 +6,8 @@ module Fastlane
 
     class GitCommitAllAction < Action
       def self.run(params)
-        Actions.sh "git commit -am \"#{params[:message]}\""
+        Actions.sh "pod package \"#{params[:podspec]}\""
       end
-
-      #####################################################
-      # @!group Documentation
-      #####################################################
 
       def self.description
         "Commit all unsaved changes to git."

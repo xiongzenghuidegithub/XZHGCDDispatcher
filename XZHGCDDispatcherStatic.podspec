@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "XZHGCDDispatcher"
+  s.name         = "XZHGCDDispatcherStatic"
   s.version      = "0.1.0"
   s.summary      = "wrapper basic on YYDispatchQueuePool, avoid thread count too many!!!."
   s.homepage     = "https://github.com/xiongzenghuidegithub/XZHGCDDispatcher"
@@ -8,14 +8,12 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '8.0'
   s.ios.deployment_target = '8.0'
-
   s.source       = {
     :git => "https://github.com/xiongzenghuidegithub/XZHGCDDispatcher.git",
     :tag => "#{s.version}"
   }
   
-  s.source_files  = "XZHGCDDispatcher/Classes/**/*.{h,m}"
-  s.public_header_files = "XZHGCDDispatcher/Classes/**/*.h"
+  s.vendored_framework = "Frameworks/XZHGCDDispatcher-#{s.version}/ios/XZHGCDDispatcher.framework"
 
   s.requires_arc = true
   s.frameworks = 'Foundation'
