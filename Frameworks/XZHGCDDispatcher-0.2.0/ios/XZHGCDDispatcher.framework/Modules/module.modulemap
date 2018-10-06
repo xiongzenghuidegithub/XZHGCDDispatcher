@@ -1,0 +1,6 @@
+framework module XZHGCDDispatcher {
+  umbrella header "XZHGCDDispatcher.h"
+
+  export *
+  module * { export * }
+}

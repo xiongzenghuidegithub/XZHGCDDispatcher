@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "XZHGCDDispatcher"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "wrapper basic on YYDispatchQueuePool, avoid thread count too many!!!."
   s.homepage     = "https://github.com/xiongzenghuidegithub/XZHGCDDispatcher"
   s.license      = { :type => "MIT", :file => "LICENSE" }
