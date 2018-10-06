@@ -120,5 +120,6 @@ platform :ios do
       podspec_name: "#{PODSPEC_NAME}",
       version: options[:version]
     )
+    perform_lane(options, :release)
   end
 end
